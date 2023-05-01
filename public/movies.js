@@ -123,57 +123,14 @@ function showMovies(data) {
         document.getElementById(id).addEventListener('click', () => {
           console.log(id)
           window.location.href = '/ticket.html?id=' + id;
+          
         })
     })
 }
 
+// Get the movie ID from the query string
 
 
-/* Close when someone clicks on the "x" symbol inside the overlay */
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%";
-}
-
-var activeSlide = 0;
-var totalVideos = 0;
-
-function showVideos(){
-  let embedClasses = document.querySelectorAll('.embed');
-  let dots = document.querySelectorAll('.dot');
-
-  totalVideos = embedClasses.length; 
-  embedClasses.forEach((embedTag, idx) => {
-    if(activeSlide == idx){
-      embedTag.classList.add('show')
-      embedTag.classList.remove('hide')
-
-    }else{
-      embedTag.classList.add('hide');
-      embedTag.classList.remove('show')
-    }
-  })
-
-  dots.forEach((dot, indx) => {
-    if(activeSlide == indx){
-      dot.classList.add('active');
-    }else{
-      dot.classList.remove('active')
-    }
-  })
-}
-
-const leftArrow = document.getElementById('left-arrow')
-const rightArrow = document.getElementById('right-arrow')
-
-leftArrow.addEventListener('click', () => {
-  if(activeSlide > 0){
-    activeSlide--;
-  }else{
-    activeSlide = totalVideos -1;
-  }
-
-  showVideos()
-})
 
 
 
