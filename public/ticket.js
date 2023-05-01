@@ -13,16 +13,18 @@ const movieId = urlParams.get('id');
 // Fetch movie details from API
 fetch(`${BASE_URL}/movie/${movieId}?${API_KEY}`).then(res => res.json()).then(movie => {
     // Display movie details
-    const { title, poster_path, overview } = movie;
+    const { title, poster_path, overview, release_date, vote_average, genres } = movie;
     const movieEl = document.createElement('div');
     movieEl.innerHTML = `
         <h2>${title}</h2>
         <img src="${IMG_URL+poster_path}" alt="${title}">
-        <p>${overview}</p>
+        <p>${overview.split('\n').join('<br>')}</p>
+        <p>Release Date: ${release_date}</p>
+        <p>Rating: ${vote_average}</p>
+        <p>Genres: ${genres.map(genre => genre.name).join(', ')}</p>
     `;
     movieInfo.appendChild(movieEl);
 });
-
 // Handle form submission
 purchaseForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -33,3 +35,4 @@ purchaseForm.addEventListener('submit', e => {
 
     // TODO: Handle ticket purchase using name, email, quantity, and movie ID
 });
+
