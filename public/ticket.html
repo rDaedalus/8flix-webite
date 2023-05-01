@@ -1,14 +1,67 @@
-<!-- ticket.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Ticket</title>
+    <style>
+        body {
+            background-color: purple;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+        .card p {
+            margin-bottom: 10px;
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="number"] {
+            padding: 5px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        form button {
+            background-color: white;
+            color: purple;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #eee;
+        }
+    </style>
 </head>
 <body>
     <h1>Movie Ticket</h1>
-    <div id="movie-info"></div>
+    <div id="movie-info" class="card">
+        <h2>Movie Information</h2>
+        <p>Title: Avengers: Endgame</p>
+        <p>Date: May 5, 2023</p>
+        <p>Time: 7:00 PM</p>
+    </div>
 
     <form id="purchase-form">
         <label for="name">Name:</label>

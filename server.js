@@ -1,14 +1,13 @@
-import express from 'express';
-import path from 'path';
+const express = require('express');
+const path = require('path');
 
 const app = express();
-const port = 8000;
+const port = 3000;
 
-// Set the public directory as static
-const publicDirectoryPath = path.join(new URL(import.meta.url).pathname, 'public');
-app.use(express.static(publicDirectoryPath));
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Listen on the specified port
+// Start the server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
