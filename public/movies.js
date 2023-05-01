@@ -122,17 +122,12 @@ function showMovies(data) {
 
         document.getElementById(id).addEventListener('click', () => {
           console.log(id)
-          openNav(movie)
+          window.location.href = '/ticket.html?id=' + id;
         })
     })
 }
 
-const overlayContent = document.getElementById('overlay-content');
-/* Open when someone clicks on the span element */
-function openNav(movie) {
-  let id = movie.id;
-  
-}
+
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
 function closeNav() {
@@ -180,14 +175,7 @@ leftArrow.addEventListener('click', () => {
   showVideos()
 })
 
-rightArrow.addEventListener('click', () => {
-  if(activeSlide < (totalVideos -1)){
-    activeSlide++;
-  }else{
-    activeSlide = 0;
-  }
-  showVideos()
-})
+
 
 
 function getColor(vote) {
@@ -200,93 +188,4 @@ function getColor(vote) {
     }
 }
 
-// form.addEventListener('submit', (e) => {
-//     e.preventDefault();
-
-//     const searchTerm = search.value;
-//     selectedGenre=[];
-//     setGenre();
-//     if(searchTerm) {
-//         getMovies(searchURL+'&query='+searchTerm)
-//     }else{
-//         getMovies(API_URL);
-//     }
-
-// })
-
-prev.addEventListener('click', () => {
-  if(prevPage > 0){
-    pageCall(prevPage);
-  }
-})
-
-next.addEventListener('click', () => {
-  if(nextPage <= totalPages){
-    pageCall(nextPage);
-  }
-})
-
-function pageCall(page){
-  let urlSplit = lastUrl.split('?');
-  let queryParams = urlSplit[1].split('&');
-  let key = queryParams[queryParams.length -1].split('=');
-  if(key[0] != 'page'){
-    let url = lastUrl + '&page='+page
-    getMovies(url);
-  }else{
-    key[1] = page.toString();
-    let a = key.join('=');
-    queryParams[queryParams.length -1] = a;
-    let b = queryParams.join('&');
-    let url = urlSplit[0] +'?'+ b
-    getMovies(url);
-  }
-}
-
-
-
-
-
-// //email sending
-// let transporter = nodemailer.createTransport({
-//     service: 'gmail',
-//     auth: {
-//         user: 'ernestojosh2@gmail.com',
-//         pass: 'jmfgzlbjnpfzxcvp'
-//     }
-// });
-
-
-
-// let mailOptions = {
-//     from: 'ernestojosh2@gmail.com',
-//     to: 'ashleydabon825@gmail.com',
-//     subject: 'Test email',
-//     text: ''
-// };
-
-// transporter.sendMail(mailOptions, function(error, info){
-//     if (error) {
-//         console.log(error);
-//     } else {
-//         console.log('Email sent: ' + info.response);
-//     }
-// });
-
-
-// //mysql connection
-// const mysql = await createConnection({
-//   host: 'localhost',
-//   user: 'root',
-//   password: 'password',
-//   database: 'mydatabase'
-// });
-// //conn function
-// mysql.connect((error)=>{
-//     if(error){
-//         console.log(error)
-//     }else{
-//         console.log("MySQL Connected")
-//     }
-// })
 
