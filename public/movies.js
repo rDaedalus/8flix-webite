@@ -3,89 +3,9 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&'+API_KEY;
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const searchURL = BASE_URL + '/search/movie?'+API_KEY;
-// const nodemailer = require("nodemailer");
-// const multiparty = require("multiparty");
-// var mysql = require('mysql2');
+// import nodemailer from '../node_modules/nodemailer/lib/nodemailer.js';
+// import mysql from '/node_modules/mysql2/index.js';
 
-
-const genres = [
-    {
-      "id": 28,
-      "name": "Action"
-    },
-    {
-      "id": 12,
-      "name": "Adventure"
-    },
-    {
-      "id": 16,
-      "name": "Animation"
-    },
-    {
-      "id": 35,
-      "name": "Comedy"
-    },
-    {
-      "id": 80,
-      "name": "Crime"
-    },
-    {
-      "id": 99,
-      "name": "Documentary"
-    },
-    {
-      "id": 18,
-      "name": "Drama"
-    },
-    {
-      "id": 10751,
-      "name": "Family"
-    },
-    {
-      "id": 14,
-      "name": "Fantasy"
-    },
-    {
-      "id": 36,
-      "name": "History"
-    },
-    {
-      "id": 27,
-      "name": "Horror"
-    },
-    {
-      "id": 10402,
-      "name": "Music"
-    },
-    {
-      "id": 9648,
-      "name": "Mystery"
-    },
-    {
-      "id": 10749,
-      "name": "Romance"
-    },
-    {
-      "id": 878,
-      "name": "Science Fiction"
-    },
-    {
-      "id": 10770,
-      "name": "TV Movie"
-    },
-    {
-      "id": 53,
-      "name": "Thriller"
-    },
-    {
-      "id": 10752,
-      "name": "War"
-    },
-    {
-      "id": 37,
-      "name": "Western"
-    }
-  ]
 
 const main = document.getElementById('main');
 const form =  document.getElementById('form');
@@ -280,19 +200,19 @@ function getColor(vote) {
     }
 }
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
+// form.addEventListener('submit', (e) => {
+//     e.preventDefault();
 
-    const searchTerm = search.value;
-    selectedGenre=[];
-    setGenre();
-    if(searchTerm) {
-        getMovies(searchURL+'&query='+searchTerm)
-    }else{
-        getMovies(API_URL);
-    }
+//     const searchTerm = search.value;
+//     selectedGenre=[];
+//     setGenre();
+//     if(searchTerm) {
+//         getMovies(searchURL+'&query='+searchTerm)
+//     }else{
+//         getMovies(API_URL);
+//     }
 
-})
+// })
 
 prev.addEventListener('click', () => {
   if(prevPage > 0){
@@ -327,46 +247,46 @@ function pageCall(page){
 
 
 
-//email sending
-let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'ernestojosh2@gmail.com',
-        pass: 'jmfgzlbjnpfzxcvp'
-    }
-});
+// //email sending
+// let transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//         user: 'ernestojosh2@gmail.com',
+//         pass: 'jmfgzlbjnpfzxcvp'
+//     }
+// });
 
 
 
-let mailOptions = {
-    from: 'ernestojosh2@gmail.com',
-    to: 'ashleydabon825@gmail.com',
-    subject: 'Test email',
-    text: ''
-};
+// let mailOptions = {
+//     from: 'ernestojosh2@gmail.com',
+//     to: 'ashleydabon825@gmail.com',
+//     subject: 'Test email',
+//     text: ''
+// };
 
-transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-        console.log(error);
-    } else {
-        console.log('Email sent: ' + info.response);
-    }
-});
+// transporter.sendMail(mailOptions, function(error, info){
+//     if (error) {
+//         console.log(error);
+//     } else {
+//         console.log('Email sent: ' + info.response);
+//     }
+// });
 
 
-//mysql connection
-const db = mysql.createConnection({
-  user: "root",
-  password: "1Casiowatch",
-  database:'movie_website'
-});
-
-//conn function
-db.connect((error)=>{
-    if(error){
-        console.log(error)
-    }else{
-        console.log("MySQL Connected")
-    }
-})
+// //mysql connection
+// const mysql = await createConnection({
+//   host: 'localhost',
+//   user: 'root',
+//   password: 'password',
+//   database: 'mydatabase'
+// });
+// //conn function
+// mysql.connect((error)=>{
+//     if(error){
+//         console.log(error)
+//     }else{
+//         console.log("MySQL Connected")
+//     }
+// })
 

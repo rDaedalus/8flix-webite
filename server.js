@@ -1,6 +1,14 @@
-var express = require('express');
-var app = express();
-app.use(express.static(__dirname + '/public')); //__dir and not _dir
-var port = 8000; // you can use any port
-app.listen(port);
-console.log('server on' + port);
+import express from 'express';
+import path from 'path';
+
+const app = express();
+const port = 8000;
+
+// Set the public directory as static
+const publicDirectoryPath = path.join(new URL(import.meta.url).pathname, 'public');
+app.use(express.static(publicDirectoryPath));
+
+// Listen on the specified port
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
