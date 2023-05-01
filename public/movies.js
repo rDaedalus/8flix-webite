@@ -122,7 +122,7 @@ function showMovies(data) {
 
         document.getElementById(id).addEventListener('click', () => {
           console.log(id)
-          window.location.href = '/ticket.html?id=' + id;
+          window.location.href = 'ticket.html?id=' + id;
           
         })
     })
