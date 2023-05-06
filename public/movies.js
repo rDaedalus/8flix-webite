@@ -98,7 +98,7 @@ function getMovies(url) {
 
 function showMovies(data) {
     main.innerHTML = '';
-q FE
+
     data.forEach(movie => {
         const {title, poster_path, vote_average, overview, id} = movie;
         const movieEl = document.createElement('div');
